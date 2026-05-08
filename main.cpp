@@ -16,4 +16,6 @@ int main () {
 	char ch2 = 'b';
 	int noOfCh = ch2;
 	cout << noOfCh << endl;
+
+	return 0;
 }
