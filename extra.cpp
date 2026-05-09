@@ -30,6 +30,27 @@ int main () {
 		n /= 2;
 	}
 	cout << noOfSetBits << endl;
+	
+	int n2;
+	cout << "Enter any number to check fibonacci logic" << endl;
+	cin >> n2;
+	if ( n2 == 1) {
+		cout << "0" << endl;
+	}
+	else if ( n2 == 2 ) {
+		cout << "0 1" << endl;
+	}
+	else {
+		int prev = 0;
+		int next = 1;
+		cout << prev << " " << next << " ";
+		for (int i = 2; i < n2; i++) {
+			int next2 = prev + next;
+			cout << next2 << " ";
+			prev = next;
+			next = next2;
+		}
+	}
 
 	return 0;
 }
