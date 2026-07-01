@@ -11,6 +11,24 @@ void takingInputInArray(int arr[][4], int row, int col) {
   return;
 }
 
+void wavePrint(int arr[][4], int row, int col) {
+  for (int i = 0; i < col; i++) {
+    if(i%2 == 0) {
+      for (int j = 0; j < row; j++) {
+        cout << arr[j][i] << " ";
+      }
+    }
+    else {
+      for (int j = row - 1; j >= 0; j--) {
+        cout << arr[j][i] << " ";
+      }
+    }
+    cout << endl;
+  }
+
+  return;
+}
+
 void rowWiseSum(int arr[][4], int row, int col) {
   for (int i = 0; i < row; i++) {
     int sum = 0;
@@ -74,7 +92,7 @@ int main() {
   takingInputInArray(arr,3,4);
   print2DArray(arr,3,4);
 
-  int target;
+  /*int target;
   cout << "Enter the value that you want to search" << endl;
   cin >> target;
   if(isPresent(arr,target,3,4)) linearSearch(arr,target,3,4);
@@ -82,7 +100,9 @@ int main() {
 
   rowWiseSum(arr,3,4);
   colWiseSum(arr,3,4);
-
+  */
+  wavePrint(arr,3,4); 
+  
   return 1;
 }
 
