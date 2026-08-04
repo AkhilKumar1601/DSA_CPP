@@ -1,35 +1,40 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main() {
-  //creating 2d-array, taking input and output.
 
-  int arr[3][3];
+  vector<vector<int>> arr(3,vector<int>(3));
 
-  cout << "Give me inputs 9 values" << endl;
+  cout << "Enter 9 elements:\n";
 
-  for (int i = 0; i < 3; i++) {
-    for ( int j = 0; j < 3; j++) {
-      cin >> arr[i][j];
+    // Input
+    for (int i = 0; i < arr.size(); i++) {
+        for (int j = 0; j < arr[i].size(); j++) {
+            cin >> arr[i][j];
+        }
     }
-  }
 
-  //Printing the 2d-array.
-  //row wise.
-  for (int i = 0; i < 3; i++) {
-    for ( int j = 0; j < 3; j++) {
-      cout << arr[j][i] << " ";
+    cout << "\nRow-wise:\n";
+
+    // Row-wise
+    for (int i = 0; i < arr.size(); i++) {
+        for (int j = 0; j < arr[i].size(); j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-  }
 
-  //col wise.
-  for (int i = 0; i < 3; i++) {
-    for ( int j = 0; j < 3; j++) {
-      cout << arr[j][i] << " ";
+    cout << "\nColumn-wise:\n";
+
+    // Column-wise
+    for (int j = 0; j < arr[0].size(); j++) {
+        for (int i = 0; i < arr.size(); i++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-  }
 
+  
   return 0;
 }
