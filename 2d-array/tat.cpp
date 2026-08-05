@@ -18,6 +18,34 @@ bool searchMatrix(vector<vector<int>>& arr, int target) {
   return false;
 }
 
+void printWaveWise(vector<vector<int>>& arr) {
+
+    int rows = arr.size();
+    int cols = arr[0].size();
+
+    for (int col = 0; col < cols; col++) {
+
+        // Even column -> Top to Bottom
+        if (col % 2 == 0) {
+
+            for (int row = 0; row < rows; row++) {
+                cout << arr[row][col] << " ";
+            }
+
+        }
+        // Odd column -> Bottom to Top
+        else {
+
+            for (int row = rows - 1; row >= 0; row--) {
+                cout << arr[row][col] << " ";
+            }
+
+        }
+    }
+
+    cout << endl;
+}
+
 void rowWiseSum(vector<vector<int>>& arr) {
   int rows = arr.size();
   int cols = arr[0].size();
@@ -59,8 +87,10 @@ int main() {
   int target = 5;
 
   //if(!searchMatrix(arr,target)) cout << "Not found";
-  rowWiseSum(arr);
-  colWiseSum(arr);  
+  /*rowWiseSum(arr);
+  colWiseSum(arr);*/
+  
+  printWaveWise(arr);
 
 
   return 0;
