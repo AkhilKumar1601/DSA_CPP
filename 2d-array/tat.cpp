@@ -46,6 +46,52 @@ void printWaveWise(vector<vector<int>>& arr) {
     cout << endl;
 }
 
+void spiralPrint(vector<vector<int>>& arr) {
+  int rows = arr.size();
+  int cols = arr[0].size();
+  
+  int left = 0;
+  int right = cols - 1;
+  int top = 0;
+  int bottom = rows - 1;
+
+  int totalElements = rows * cols;
+  int count = 0;
+
+  while ( count < totalElements ) {
+    //print first row
+    for ( int col = left; count < totalElements && col <= right; col++) {
+      cout << arr[top][col] << " ";
+      count++;
+    }
+    top++;
+
+    //print last col
+    for ( int row = top; count < totalElements &&  row <= bottom; row++) {
+      cout << arr[row][right] << " ";
+      count++;
+    }
+    right--;
+
+    //print last row;
+    for ( int col = right; count < totalElements && col >= left; col--) {
+      cout << arr[bottom][col] << " ";
+      count++;
+    }
+    bottom--;
+
+    //print first col;
+    for ( int row = bottom; count < totalElements && row >= top; row--) {
+      cout << arr[row][left] << " ";
+      count++;
+    }
+    left++;
+
+  }
+
+  cout << endl;
+}
+
 void rowWiseSum(vector<vector<int>>& arr) {
   int rows = arr.size();
   int cols = arr[0].size();
@@ -90,8 +136,8 @@ int main() {
   /*rowWiseSum(arr);
   colWiseSum(arr);*/
   
-  printWaveWise(arr);
-
+  //printWaveWise(arr);
+  spiralPrint(arr);
 
   return 0;
 }
