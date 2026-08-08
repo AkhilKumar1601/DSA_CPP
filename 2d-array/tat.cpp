@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 bool searchMatrix(vector<vector<int>>& arr, int target) {
@@ -122,6 +123,22 @@ void colWiseSum(vector<vector<int>>& arr) {
   return;
 }
 
+void rotate(vector<vector<int>>& arr) {
+  //only two step :- transpose then reverse each row.
+  int n = arr.size();
+
+  //transpose
+  for ( int row = 0; row < n; row++) {
+    for ( int col = row + 1; col < n; col++ ) {
+      swap(arr[row][col], arr[col][row]);
+    }
+  }
+
+  for ( int row = 0; row < n; row++ ) {
+    reverse(arr[row].begin(), arr[row].end());
+  }
+}
+
 int main() {
 
   vector<vector<int>> arr = {
@@ -137,7 +154,14 @@ int main() {
   colWiseSum(arr);*/
   
   //printWaveWise(arr);
-  spiralPrint(arr);
+  // spiralPrint(arr);
+  rotate(arr);
+  for ( int row = 0; row < 3; row++ ) {
+    for ( int col = 0; col < 3; col++ ) {
+      cout << arr[row][col] << " ";
+    }
+    cout << endl;
+  }
 
   return 0;
 }
