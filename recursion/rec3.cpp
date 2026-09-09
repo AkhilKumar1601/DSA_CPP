@@ -71,8 +71,17 @@ int lastOcc(int arr[],int s,int e, int key, int ans) {
   
 }
 
+int peakElementIndex(int arr[],int s, int e) {
+  if (s == e) return s;
+
+  int mid = s + (e-s)/2;
+
+  if ( arr[mid] < arr[mid+1]) return peakElementIndex(arr,mid+1,e);
+  else return peakElementIndex(arr,s,mid);
+}
+
 int main() {
-  int arr[] = {20,30,30,33,33,33,34,40,50};
+  int arr[] = {1,3,5,7,6,4,2};
 
   // cout << isSorted(arr,5) << endl;
   //cout << sum(arr,5) << endl;
@@ -82,8 +91,10 @@ int main() {
   //cout << linearSearch(arr,key,5) << endl;
 
   // cout << bs2(arr,0,4,key) << endl;
-  cout << firstOcc(arr,0,8,key,-1) << endl;
-  cout << lastOcc(arr,0,8,key,-1) << endl;
+  //cout << firstOcc(arr,0,8,key,-1) << endl;
+  //cout << lastOcc(arr,0,8,key,-1) << endl;
+
+  cout << peakElementIndex(arr,0,7) << endl;
 
   return 0;
 }  
