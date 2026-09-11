@@ -80,8 +80,30 @@ int peakElementIndex(int arr[],int s, int e) {
   else return peakElementIndex(arr,s,mid);
 }
 
+int pivotIndex(int arr[], int s, int e) {
+  if ( s == e ) return s;
+
+  int mid = s + (e-s)/2;
+
+  if(arr[mid] >= arr[0]) return pivotIndex(arr,mid+1,e);
+  else return pivotIndex(arr,s,mid);
+}
+
+int sqrt(int n, int s, int e, int ans) {
+  if (s>e) return ans;
+
+  int mid = s + (e-s)/2;
+
+  if ( mid * mid == n) return mid;   // mid == n/mid
+  else if ( mid * mid < n) {   //mid <= n / mid
+    ans = mid;
+    return sqrt(n,mid+1,e,ans);
+  }
+  else return sqrt(n,s,mid-1,ans);
+}
+
 int main() {
-  int arr[] = {1,3,5,7,6,4,2};
+  int arr[] = {7,9,1,2,3};
 
   // cout << isSorted(arr,5) << endl;
   //cout << sum(arr,5) << endl;
@@ -94,7 +116,10 @@ int main() {
   //cout << firstOcc(arr,0,8,key,-1) << endl;
   //cout << lastOcc(arr,0,8,key,-1) << endl;
 
-  cout << peakElementIndex(arr,0,7) << endl;
+  //cout << peakElementIndex(arr,0,7) << endl;
+  //cout << pivotIndex(arr,0,4);
+
+  cout << sqrt(36,0,36,-1) << endl;
 
   return 0;
 }  
